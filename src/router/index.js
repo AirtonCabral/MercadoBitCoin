@@ -1,34 +1,35 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import WelcomeStepOne from '@/components/welcome-stepOne.vue'
-import PersonTypeStepTwo from '@/components/personType-stepTwo.vue'
-import PasswordStepThree from '@/components/password-stepThree.vue'
-import CheckInfosStepFour from '@/components/checkinfos-stepFour.vue'
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+
+import StepOne from '../components/StepOne.vue'
+import StepTwo from '../components/StepTwo.vue'
+import StepThree from '../components/StepThree.vue'
+import StepFour from '../components/StepFour.vue'
+
+Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '',
+    path: '/',
     name: 'StepOne',
-    component: WelcomeStepOne,
+    component: StepOne
   },
   {
-    path: '/Cadastro-de-Pessoa',
+    path: '/Cadastro-Pessoal',
     name: 'StepTwo',
-    component: PersonTypeStepTwo,
-  },
-  {
-    path: '/Senha-de-Acesso',
+    component: StepTwo
+  },{
+    path: '/Senha-Acesso',
     name: 'StepThree',
-    component: PasswordStepThree,
-  },
-  {
-    path: '/Revise-suas-informações',
+    component: StepThree
+  },{
+    path: '/Revisar-Informações',
     name: 'StepFour',
-    component: CheckInfosStepFour,
-  },
+    component: StepFour
+  }
 ]
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+const router = new VueRouter({
   routes
 })
 

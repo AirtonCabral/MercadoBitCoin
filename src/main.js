@@ -1,15 +1,14 @@
-import { createApp } from 'vue'
+import Vue from 'vue'
 import App from './App.vue'
-import vuetify from './plugins/vuetify'
-import { loadFonts } from './plugins/webfontloader'
 import router from './router'
-import VueDatePicker from '@vuepic/vue-datepicker';
-import '@vuepic/vue-datepicker/dist/main.css'
+import vuetify from './plugins/vuetify'
+import { VueMaskDirective } from 'v-mask'
+Vue.directive('mask', VueMaskDirective);
 
-loadFonts()
+Vue.config.productionTip = false
 
-createApp(App)
-  .use(router)
-  .use(vuetify)
-  .component('VueDatePicker', VueDatePicker)
-  .mount('#app')
+new Vue({
+  router,
+  vuetify,
+  render: h => h(App)
+}).$mount('#app')
